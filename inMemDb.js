@@ -13,6 +13,8 @@ const users = {
   '12': { name: 'Liam', age: 20, gender: 'm', jobType: 'st' }
 };
 
+let arrayAge = Object.values(users).map(function(x){return Number(x.age);});
+
 const employer = {
   dv: 'DevLeague',
   st: 'Student',
@@ -20,27 +22,35 @@ const employer = {
 };
 
 function byId(id) {
-
+  return users[id];
 }
 
 function youngest() {
-
+  let indexMinAge = arrayAge.indexOf(Math.min(...arrayAge));
+  return users[indexMinAge + 1];
 }
 
 function oldest() {
-
+  let indexMaxAge = arrayAge.indexOf(Math.max(...arrayAge));
+  return users[indexMaxAge + 1];
 }
 
 function males () {
-
+  return Object.values(users).filter(function(x){return x.gender === 'm';});
 }
 
 function females() {
+  return Object.values(users).filter(function(x){return x.gender === 'f';});
 
 }
 
-function employees(employer) {
+function employees(employerCode) {
+  let arrayEmployer = Object.values(users).filter(function(x){return x.jobType === employerCode;});
 
+  arrayEmployer.forEach(function(x){x.jobType = employer[employerCode];});
+
+
+  return arrayEmployer;
 }
 
 const functions = {

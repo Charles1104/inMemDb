@@ -53,13 +53,26 @@ function employees(employerCode) {
   return arrayEmployer;
 }
 
+function employeesGroup(){
+  let arrayEmployer = Object.keys(employer);
+  let arr = [];
+
+  arrayEmployer.forEach(function(x){Object.values(users).filter(function(y){return y.jobType === 'x';});});
+
+  console.log(arrayEmployer);
+
+}
+
 const functions = {
   byId: byId,
   youngest: youngest,
   oldest: oldest,
   males: males,
   females: females,
-  employees: employees
+  employees: employees,
+  employeesGroup: employeesGroup
 };
+
+functions.employeesGroup();
 
 module.exports = functions;
